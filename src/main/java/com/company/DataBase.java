@@ -1,5 +1,6 @@
 package com.company;
 
+import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -16,7 +17,11 @@ public class DataBase {
 
     }
 
+
+
     public void operate(Operation operation) {
+
+
 
         try{
             Class.forName("org.postgresql.Driver");

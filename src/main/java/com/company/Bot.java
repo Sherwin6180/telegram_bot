@@ -4,6 +4,8 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.sql.*;
 import java.time.Instant;
 import java.time.ZoneOffset;
@@ -28,6 +30,16 @@ public class Bot extends TelegramLongPollingBot {
         return botToken;
     }
 
+    private static Connection getConnection() throws URISyntaxException, SQLException {
+        URI dbUri = new URI(System.getenv("DATABASE_URL"));
+
+        String username = dbUri.getUserInfo().split(":")[0];
+        String password = dbUri.getUserInfo().split(":")[1];
+        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
+
+        return DriverManager.getConnection(dbUrl, username, password);
+    }
+
     @Override
     public void onUpdateReceived(Update update) {
         if(update.getMessage().hasText()){
@@ -40,9 +52,18 @@ public class Bot extends TelegramLongPollingBot {
             Statement stmt = null;
             try {
                 Class.forName("org.postgresql.Driver");
-                c = DriverManager
-                        .getConnection(DATABASE_URL,
-                                USER, PASSWORD);
+
+                String MODE = System.getenv("MODE");
+                if(MODE.equals("DEV")){
+                    c = DriverManager
+                            .getConnection(DATABASE_URL,
+                                    USER, PASSWORD);
+                }
+                else if(MODE.equals("PROD")){
+                    c = getConnection();
+                }
+
+
                 System.out.println("Opened database successfully");
 
                 c.setAutoCommit(false);

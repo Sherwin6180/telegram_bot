@@ -1,0 +1,40 @@
+Manifest-Version: 1.0
+Main-Class: com.company.Main
+Class-Path: httpcore-4.4.13.jar jakarta.inject-2.6.1.jar jsr305-3.0.2.ja
+ r hk2-locator-2.6.1.jar jackson-annotations-2.11.3.jar httpmime-4.5.13.
+ jar jersey-common-2.32.jar jackson-databind-2.11.3.jar jakarta.activati
+ on-1.2.2.jar jersey-client-2.32.jar httpclient-4.5.13.jar jersey-entity
+ -filtering-2.32.jar commons-logging-1.2.jar jersey-media-json-jackson-2
+ .32.jar jackson-jaxrs-json-provider-2.11.3.jar jackson-jaxrs-base-2.11.
+ 3.jar telegrambots-meta-5.6.0.jar jersey-hk2-2.32.jar jersey-media-jaxb
+ -2.32.jar hk2-utils-2.6.1.jar hk2-api-2.6.1.jar jackson-module-jaxb-ann
+ otations-2.11.3.jar json-20180813.jar error_prone_annotations-2.3.4.jar
+  jakarta.validation-api-2.0.2.jar aopalliance-repackaged-2.6.1.jar comm
+ ons-io-2.8.0.jar grizzly-http-server-2.4.4.jar j2objc-annotations-1.3.j
+ ar checker-qual-3.5.0.jar jakarta.xml.bind-api-2.3.2.jar grizzly-framew
+ ork-2.4.4.jar slf4j-api-1.7.30.jar jakarta.activation-api-1.2.1.jar jer
+ sey-container-grizzly2-http-2.32.jar jersey-server-2.32.jar jakarta.ws.
+ rs-api-2.1.6.jar telegrambots-5.6.0.jar osgi-resource-locator-1.0.3.jar
+  commons-codec-1.11.jar guava-30.0-jre.jar telegrambots-5.6.0.jar teleg
+ rambots-meta-5.6.0.jar guava-30.0-jre.jar failureaccess-1.0.1.jar liste
+ nablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar jsr305-3.0.2.
+ jar checker-qual-3.5.0.jar error_prone_annotations-2.3.4.jar j2objc-ann
+ otations-1.3.jar jackson-annotations-2.11.3.jar jackson-jaxrs-json-prov
+ ider-2.11.3.jar jackson-jaxrs-base-2.11.3.jar jackson-module-jaxb-annot
+ ations-2.11.3.jar jackson-core-2.11.3.jar jakarta.xml.bind-api-2.3.2.ja
+ r jakarta.activation-api-1.2.1.jar jackson-databind-2.11.3.jar jersey-h
+ k2-2.32.jar jersey-common-2.32.jar osgi-resource-locator-1.0.3.jar jaka
+ rta.activation-1.2.2.jar hk2-locator-2.6.1.jar aopalliance-repackaged-2
+ .6.1.jar hk2-api-2.6.1.jar hk2-utils-2.6.1.jar javassist-3.25.0-GA.jar 
+ jersey-media-json-jackson-2.32.jar jersey-entity-filtering-2.32.jar jer
+ sey-container-grizzly2-http-2.32.jar jakarta.inject-2.6.1.jar grizzly-h
+ ttp-server-2.4.4.jar grizzly-http-2.4.4.jar grizzly-framework-2.4.4.jar
+  jakarta.ws.rs-api-2.1.6.jar jersey-server-2.32.jar jersey-client-2.32.
+ jar jersey-media-jaxb-2.32.jar jakarta.annotation-api-1.3.5.jar jakarta
+ .validation-api-2.0.2.jar json-20180813.jar httpclient-4.5.13.jar httpc
+ ore-4.4.13.jar commons-logging-1.2.jar commons-codec-1.11.jar httpmime-
+ 4.5.13.jar commons-io-2.8.0.jar slf4j-api-1.7.30.jar jackson-core-2.11.
+ 3.jar javassist-3.25.0-GA.jar jakarta.annotation-api-1.3.5.jar postgres
+ ql-42.2.10.jar grizzly-http-2.4.4.jar listenablefuture-9999.0-empty-to-
+ avoid-conflict-with-guava.jar failureaccess-1.0.1.jar
+

@@ -1,1 +1,1 @@
-web: java -jar target/ChrisTelegramBot-1.0-SNAPSHOT.jar
+web: java -jar out/artifacts/ChrisTelegramBot_jar/ChrisTelegramBot.jar

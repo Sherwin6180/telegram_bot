@@ -16,6 +16,7 @@ public class Main {
     static final String PASS = "password";
 
     public static void main(String[] args) {
+        System.out.println(System.getenv("TOKEN"));
         // Open a connection
 //        try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
 //            Statement stmt = conn.createStatement();

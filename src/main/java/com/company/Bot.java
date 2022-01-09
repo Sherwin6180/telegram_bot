@@ -11,7 +11,12 @@ import java.time.format.DateTimeFormatter;
 
 public class Bot extends TelegramLongPollingBot {
     final String botUsername = "my_Kurisu_Makise_bot";
-    final String botToken = "5053869817:AAFBYLYaFkzjV6aynBXcS-Fm-LSGJVLjwUg";
+    final String botToken = System.getenv("TOKEN");
+    final String DATABASE_URL = System.getenv("DATABASE_URL");
+    final String USER = System.getenv("USER");
+    final String PASSWORD = System.getenv("PASSWORD");
+
+//    final String botToken = "5053869817:AAFBYLYaFkzjV6aynBXcS-Fm-LSGJVLjwUg";
 
     @Override
     public String getBotUsername() {
@@ -36,8 +41,8 @@ public class Bot extends TelegramLongPollingBot {
             try {
                 Class.forName("org.postgresql.Driver");
                 c = DriverManager
-                        .getConnection("jdbc:postgresql://localhost:5432/telegram_bot",
-                                "telegram_bot_user", "password");
+                        .getConnection(DATABASE_URL,
+                                USER, PASSWORD);
                 System.out.println("Opened database successfully");
 
                 c.setAutoCommit(false);

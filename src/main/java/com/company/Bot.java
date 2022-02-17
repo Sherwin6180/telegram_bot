@@ -45,68 +45,36 @@ public class Bot extends TelegramLongPollingBot {
         if(update.getMessage().hasText()){
             String chatID = update.getMessage().getChatId().toString();
             String message = update.getMessage().getText().toString();
-//            String text = "Hello, my friend!";
 
-            //store the message in the database
-            Connection c = null;
-            Statement stmt = null;
-            try {
-                Class.forName("org.postgresql.Driver");
-
-                String MODE = System.getenv("MODE");
-                if(MODE.equals("DEV")){
-                    c = DriverManager
-                            .getConnection(DATABASE_URL,
-                                    USER, PASSWORD);
-                }
-                else if(MODE.equals("PROD")){
-                    c = getConnection();
-                }
-
-
-                System.out.println("Opened database successfully");
-
-                c.setAutoCommit(false);
-                stmt = c.createStatement();
-
-
-                if(!c.getMetaData().getTables(null, null, "messages", null).next()){
-                    String sql = "CREATE TABLE MESSAGES " +
-                            "(ID SERIAL NOT NULL PRIMARY KEY ," +
-                            " MESSAGE           TEXT    NOT NULL, " +
-                            " DATE            TEXT     NOT NULL)";
-
-                    stmt.execute(sql);
-                }
-
-                String date = Instant.now().atZone(ZoneOffset.UTC).format(DateTimeFormatter.ISO_LOCAL_DATE);
-                String query = "INSERT INTO MESSAGES(MESSAGE, DATE) VALUES(?, ?)";
-                PreparedStatement pst = c.prepareStatement(query);
-                pst.setString(1, message);
-                pst.setString(2, date);
-                pst.executeUpdate();
-
-
-//                String sql = "INSERT INTO MESSAGES (MESSAGE,DATE) "
-//                        + "VALUES (message, date );";
-//                stmt.executeUpdate(sql);
-
-
-
-                stmt.close();
-                c.commit();
-                c.close();
-            } catch ( Exception e ) {
-                System.err.println( e.getClass().getName()+": "+ e.getMessage() );
-                System.exit(0);
-            }
-            System.out.println("Table created successfully");
 
             try{
-                execute(new SendMessage(chatID, message));
+                int input = Integer.parseInt(message);
+                String response = "";
+                int base = 2;
+                int curr, power;
+                boolean hasResult = false;
+                while(base < 10 ){
+                    curr = base;
+                    power = 1;
+                    while(curr <= input){
+                        if(input - curr < 10){
+                            hasResult = true;
+                            String result = input + " = " + base + " ^ " + power + " + " + (input-curr) + "\n";
+                            response += result;
+                            execute(new SendMessage(chatID, result));
+                        }
+                        curr *= base;
+                        power++;
+                    }
+                    base++;
+                }
+                if(!hasResult)
+                    execute(new SendMessage(chatID, "没有理想结果"));
+
             }catch(Exception exception){
                 exception.printStackTrace();
             }
         }
     }
 }
+
